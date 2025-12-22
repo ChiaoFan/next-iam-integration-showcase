@@ -3,6 +3,7 @@
 A professional-grade identity management showcase built with Next.js 15 and Auth.js v5. This project demonstrates the architectural implementation of GitHub and Google OAuth (SSO), focusing on secure session management and server-side authentication.
 
 ## Technical Stack
+
 - **Framework:** Next.js 15 (App Router)
 - **Authentication:** Auth.js v5 (Beta)
 - **Identity Providers:** GitHub OAuth, Google OAuth
@@ -10,12 +11,15 @@ A professional-grade identity management showcase built with Next.js 15 and Auth
 - **Environment:** Node.js v24
 
 ## Architecture & IAM Logic
-This project demonstrates a **Multi-Provider OAuth 2.0** flow. 
+
+This project demonstrates a **Multi-Provider OAuth 2.0** flow.
+
 - **Server-Side Auth:** Using Next.js Server Components to securely handle session validation.
 - **Pluggable Providers:** An extensible configuration in `auth.ts` allowing for easy integration of enterprise SSO (Single Sign-On).
 - **Security:** CSRF protection and secure cookie management handled by Auth.js.
 
 ## Setup Instructions
+
 1. Clone the repository to your local machine.
 2. Install dependencies:
    npm install
@@ -33,6 +37,7 @@ AUTH_GOOGLE_SECRET=your_google_client_secret
 Open http://localhost:3000 with your browser to see the result.
 
 ## Key Learning Outcomes
+
 - Implementing **Catch-all API Routes** (`/api/auth/[...nextauth]`).
 - Managing **User Sessions** across the client and server.
 - Configuring **OAuth Applications** in GitHub and Google Developer Consoles.
@@ -51,4 +56,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
