@@ -1,6 +1,5 @@
-// src/app/page.tsx (or app/page.tsx if you don't have src folder)
-import { auth, signIn, signOut } from "@/auth";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import { auth, signOut } from "@/auth";
+import LoginButton from "./components/LoginButton";
 
 export default async function Home({
   searchParams,
@@ -18,20 +17,20 @@ export default async function Home({
       <div>
         {error && (
           <div className="bg-red-100 text-red-600 p-4 rounded-md mb-4">
-            Oops! Something went wrong with the login. Please try again.
+            {error === "OAuthCallbackError"
+              ? "There was a problem linking your account. Please check your credentials."
+              : "An unexpected error occurred."}
           </div>
         )}
-        {/* Your login buttons here */}
       </div>
       {session ? (
         <div className="text-center max-w-2xl mx-auto">
-          {" "}
           {/* Added max-w-2xl and mx-auto for better readability */}
           <h2 className="text-2xl font-semibold mb-4 text-green-600">
             Authentication Successful!
           </h2>
           <p className="mb-6 text-lg">
-            Welcome back,{" "}
+            Welcome back,
             <span className="font-bold text-blue-700">
               {session.user?.name}
             </span>
@@ -57,28 +56,8 @@ export default async function Home({
         </div>
       ) : (
         <div className="flex flex-col gap-4 w-full max-w-xs">
-          <form
-            className="w-full"
-            action={async () => {
-              "use server";
-              await signIn("github");
-            }}
-          >
-            <button className="w-full flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg">
-              <FaGithub /> <span>Login with GitHub</span>
-            </button>
-          </form>
-          <form
-            className="w-full"
-            action={async () => {
-              "use server";
-              await signIn("google");
-            }}
-          >
-            <button className="w-full flex items-center justify-center gap-3 bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-lg">
-              <FaGoogle /> <span>Login with Google</span>
-            </button>
-          </form>
+          <LoginButton provider="github" />
+          <LoginButton provider="google" />
         </div>
       )}
     </main>
