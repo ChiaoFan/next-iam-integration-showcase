@@ -1,6 +1,6 @@
-# CF IAM Integration Showcase
+# Chiao-Fan's IAM Integration Showcase
 
-A professional-grade identity management showcase built with Next.js 15 and Auth.js v5. This project demonstrates the architectural implementation of GitHub and Google OAuth (SSO), focusing on secure session management and server-side authentication.
+An identity management showcase built with Next.js 15 and Auth.js v5. This project demonstrates the architectural implementation of GitHub and Google OAuth (SSO), focusing on secure session management and server-side authentication.
 
 ## Technical Stack
 
@@ -17,6 +17,7 @@ This project demonstrates a **Multi-Provider OAuth 2.0** flow.
 - **Server-Side Auth:** Using Next.js Server Components to securely handle session validation.
 - **Pluggable Providers:** An extensible configuration in `auth.ts` allowing for easy integration of enterprise SSO (Single Sign-On).
 - **Security:** CSRF protection and secure cookie management handled by Auth.js.
+- **Error Handling:** Implemented a custom error-handling layer using a Record-based Mapping Pattern. This translates technical OAuth/OIDC error codes (e.g., Configuration, AccessDenied) into user-friendly instructions.
 
 ## Setup Instructions
 
@@ -35,12 +36,6 @@ AUTH_GOOGLE_SECRET=your_google_client_secret
    npm run dev
 
 Open http://localhost:3000 with your browser to see the result.
-
-## Key Learning Outcomes
-
-- Implementing **Catch-all API Routes** (`/api/auth/[...nextauth]`).
-- Managing **User Sessions** across the client and server.
-- Configuring **OAuth Applications** in GitHub and Google Developer Consoles.
 
 ## Learn More
 
