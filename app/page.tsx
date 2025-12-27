@@ -9,15 +9,14 @@ export default async function Home({
 }) {
   const session = await auth();
   const { error } = await searchParams;
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-4xl font-bold mb-8">
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 md:p-24">
+      <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center px-2">
         Chiao-Fan&apos;s Identity and Access Management Showcase
       </h1>
       <div>
         {error && (
-          <div className="bg-red-100 text-red-600 p-4 rounded-md mb-4">
+          <div className="bg-red-100 text-red-600 p-4 rounded-md mb-4 text-sm md:text-base">
             {error === "OAuthCallbackError"
               ? "There was a problem linking your account. Please check your credentials."
               : "An unexpected error occurred."}
@@ -25,15 +24,18 @@ export default async function Home({
         )}
       </div>
       {session ? (
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center w-full max-w-2xl mx-auto px-2">
           <div className="space-y-6">
             <div className="p-4 bg-green-50 rounded-lg">
-              <p>
+              <p className="text-sm md:text-base">
                 Welcome, {session.user?.name}! You are login sucessfully. You
                 can play now.{" "}
               </p>
             </div>
-            <JumpGame />
+            {/* Game container made responsive */}
+            <div className="w-full overflow-hidden">
+              <JumpGame />
+            </div>
           </div>
           <div className="p-4">
             <form
@@ -42,20 +44,24 @@ export default async function Home({
                 await signOut();
               }}
             >
-              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
+              <button className="w-full md:w-auto bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
                 Sign Out
               </button>
             </form>
           </div>
         </div>
       ) : (
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center w-full max-w-2xl mx-auto px-4">
           <div className="space-y-4">
             <div className="p-4">
-              <p>You must be authenticated to access the Game. </p>
+              <p className="text-sm md:text-base">
+                You must be authenticated to access the Game.{" "}
+              </p>
             </div>
-            <LoginButton provider="github" />
-            <LoginButton provider="google" />
+            <div className="flex flex-col items-center space-y-3">
+              <LoginButton provider="google" />
+              <LoginButton provider="github" />
+            </div>
           </div>
         </div>
       )}
