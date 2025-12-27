@@ -1,8 +1,12 @@
 # Chiao-Fan's Identity and Access Management Showcase
 
+By bridging OAuth 2.0 with a custom-built game engine, this project showcases a 'Login-to-Play' flow that grants users instant access to the game upon authenticating with Google or GitHub.
+
 Most modern security breaches happen because of poorly managed credentials. I built this application to demonstrate how to eliminate password liability while providing a high-trust, frictionless user experience. By integrating Google and GitHub SSO, we ensure sensitive credentials never enter our system. This allows us to rely on industry-leading security standards while keeping our own database lean and secure.
 
-By bridging OAuth 2.0 with a custom-built game engine, this project showcases a 'Login-to-Play' flow that grants users instant access to the game upon authenticating with Google or GitHub.
+## Live Demo
+
+Check out the live application here: [https://chiao-game.vercel.app/](https://chiao-game.vercel.app/)
 
 ## Technical Stack
 
@@ -41,15 +45,7 @@ Open http://localhost:3000 with your browser to see the result.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Learn Auth.js](https://authjs.dev/)
+- [Setup OAuth with GitHub](https://authjs.dev/guides/configuring-github) - setting up Auth.js in your application to be able to log in with GitHub.
