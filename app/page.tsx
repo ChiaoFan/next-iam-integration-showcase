@@ -1,5 +1,6 @@
 import { auth, signOut } from "@/auth";
 import LoginButton from "./components/LoginButton";
+import JumpGame from "./components/JumpGame";
 
 export default async function Home({
   searchParams,
@@ -25,39 +26,37 @@ export default async function Home({
       </div>
       {session ? (
         <div className="text-center max-w-2xl mx-auto">
-          {/* Added max-w-2xl and mx-auto for better readability */}
-          <h2 className="text-2xl font-semibold mb-4 text-green-600">
-            Authentication Successful!
-          </h2>
-          <p className="mb-6 text-lg">
-            Welcome back,
-            <span className="font-bold text-blue-700">
-              {session.user?.name}
-            </span>
-            !
-          </p>
-          <p className="text-gray-700 leading-relaxed mb-6">
-            This showcase demonstrates a robust **Next.js 15 App Router**
-            integration with **Auth.js v5 (NextAuth)** for secure Identity and
-            Access Management. Leveraging **Server Components** and **Server
-            Actions**, it provides a streamlined, full-stack authentication flow
-            via **GitHub OAuth**, ensuring secure user sessions and data access.
-          </p>
-          <form
-            action={async () => {
-              "use server";
-              await signOut();
-            }}
-          >
-            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
-              Sign Out
-            </button>
-          </form>
+          <div className="space-y-6">
+            <div className="p-4 bg-green-50 rounded-lg">
+              <p>
+                Welcome, {session.user?.name}! You are login sucessfully. You
+                can play now.{" "}
+              </p>
+            </div>
+            <JumpGame />
+          </div>
+          <div className="p-4">
+            <form
+              action={async () => {
+                "use server";
+                await signOut();
+              }}
+            >
+              <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-lg font-medium transition-colors">
+                Sign Out
+              </button>
+            </form>
+          </div>
         </div>
       ) : (
-        <div className="flex flex-col gap-4 w-full max-w-xs">
-          <LoginButton provider="github" />
-          <LoginButton provider="google" />
+        <div className="text-center max-w-2xl mx-auto">
+          <div className="space-y-4">
+            <div className="p-4">
+              <p>You must be authenticated to access the Game. </p>
+            </div>
+            <LoginButton provider="github" />
+            <LoginButton provider="google" />
+          </div>
         </div>
       )}
     </main>

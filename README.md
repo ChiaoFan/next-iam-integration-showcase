@@ -1,6 +1,8 @@
-# Chiao-Fan's IAM Integration Showcase
+# Chiao-Fan's Identity and Access Management Showcase
 
-An identity management showcase built with Next.js 15 and Auth.js v5. This project demonstrates the architectural implementation of GitHub and Google OAuth (SSO), focusing on secure session management and server-side authentication.
+Most modern security breaches happen because of poorly managed credentials. I built this application to demonstrate how to eliminate password liability while providing a high-trust, frictionless user experience. By integrating Google and GitHub SSO, we ensure sensitive credentials never enter our system. This allows us to rely on industry-leading security standards while keeping our own database lean and secure.
+
+By bridging OAuth 2.0 with a custom-built game engine, this project showcases a 'Login-to-Play' flow that grants users instant access to the game upon authenticating with Google or GitHub.
 
 ## Technical Stack
 
