@@ -15,6 +15,7 @@ Check out the live application here: [https://chiao-game.vercel.app/](https://ch
 - **Identity Providers:** GitHub OAuth, Google OAuth
 - **Styling:** Tailwind CSS
 - **Environment:** Node.js v24
+- **Security Scanning:** Snyk (SAST & Dependency Analysis)
 
 ## Architecture & IAM Logic
 
@@ -42,6 +43,13 @@ AUTH_GOOGLE_SECRET=your_google_client_secret
    npm run dev
 
 Open http://localhost:3000 with your browser to see the result.
+
+## Security & Pipeline (SAST)
+
+This project follows a **"Shift Left"** security philosophy. I have integrated **Snyk** into the GitHub Actions pipeline to perform **Static Application Security Testing (SAST)**.
+
+- **Automated Scans:** Every Pull Request to `main` triggers an automated scan for code vulnerabilities and insecure dependencies.
+- **Merge Protection:** High-severity security issues block the merge process, ensuring only audited code reaches production.
 
 ## Learn More
 
