@@ -1,4 +1,4 @@
-name: "Snyk Security Scan"
+name: "CI/CD Pipeline"
 
 on:
   pull_request:
@@ -21,7 +21,7 @@ jobs:
 
       - name: Run Formatting Check
         run: npm run format:check
-        
+
       # This runs the SAST (Static Analysis) specifically
       - name: Run Snyk Code test
         run: npx snyk code test --severity-threshold=high

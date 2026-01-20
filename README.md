@@ -53,7 +53,6 @@ This project follows a **"Shift Left"** security philosophy. I have integrated *
 
 ## Learn More
 
-
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [Learn Auth.js](https://authjs.dev/)
