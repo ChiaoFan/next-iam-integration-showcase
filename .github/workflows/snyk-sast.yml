@@ -1,0 +1,26 @@
+name: "Snyk Security Scan"
+
+on:
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  sast_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24' # Match your Next.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      # This runs the SAST (Static Analysis) specifically
+      - name: Run Snyk Code test
+        run: npx snyk code test --severity-threshold=high
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
