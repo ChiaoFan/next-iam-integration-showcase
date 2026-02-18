@@ -28,11 +28,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   deployment_validation:
-    name: "Scaling: ${{ matrix.environment }} Tier"
-    needs: unified_quality_gate
+    name: "Deployment ${{ matrix.environment }}"
+    needs: unified_quality_gate #
     strategy:
       matrix:
-        environment: [Dev, Staging, Production]
+        environment: [Staging, Production]
     runs-on: ubuntu-latest
     steps:
       - name: "Zero-Waste Provisioning"
