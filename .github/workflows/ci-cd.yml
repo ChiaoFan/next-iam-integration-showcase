@@ -5,7 +5,7 @@ on:
     branches: ["master", "main"]
 
 jobs:
-  sast_scan:
+  unified_quality_gate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,3 +27,16 @@ jobs:
         run: npx snyk code test --severity-threshold=high
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  deployment_validation:
+    name: "Deployment ${{ matrix.environment }}"
+    needs: unified_quality_gate #
+    strategy:
+      matrix:
+        environment: [Staging, Production]
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Zero-Waste Provisioning"
+        run: |
+          echo "Hiring worker for ${{ matrix.environment }}..."
+          sleep 12 # Gives you time to talk
+          echo "Deployment to ${{ matrix.environment }} successful. Releasing resources."
