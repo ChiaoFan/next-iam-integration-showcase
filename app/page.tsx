@@ -7,7 +7,7 @@ const AUTH_ERROR_MESSAGES: Record<string, string> = {
     "Connection failed. Please check your login provider settings.",
   AccessDenied: "Access denied. You do not have permission to view this page.",
   default: "Authentication failed. Please try again or contact support.",
-};
+};   
 
 export default async function Home({
   searchParams,
@@ -17,7 +17,7 @@ export default async function Home({
   const session = await auth();
   const { error } = await searchParams;
 
-  // 2. Logic to pick the message (Added)
+  // 2. Logic to pick the message (Added) a
   const errorMessage = error
     ? AUTH_ERROR_MESSAGES[error] || AUTH_ERROR_MESSAGES.default
     : null;
