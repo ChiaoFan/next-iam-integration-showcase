@@ -7,7 +7,7 @@ const AUTH_ERROR_MESSAGES: Record<string, string> = {
     "Connection failed. Please check your login provider settings.",
   AccessDenied: "Access denied. You do not have permission to view this page.",
   default: "Authentication failed. Please try again or contact support.",
-};   
+};
 
 export default async function Home({
   searchParams,
