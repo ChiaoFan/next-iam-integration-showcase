@@ -23,7 +23,7 @@ jobs:
         run: npm run format:check
 
       # This runs the SAST (Static Analysis) specifically
-      - name: Run Snyk Code test
+      - name: Run Security checks with Snyk
         run: npx snyk code test --severity-threshold=high
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -32,7 +32,7 @@ jobs:
     needs: unified_quality_gate #
     strategy:
       matrix:
-        environment: [Staging, Production]
+        environment: [Dev, Dev-int]
     runs-on: ubuntu-latest
     steps:
       - name: "Zero-Waste Provisioning"
